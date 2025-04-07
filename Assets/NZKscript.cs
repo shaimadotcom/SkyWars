@@ -4,8 +4,8 @@ public class NZKscript : MonoBehaviour
 {    private Rigidbody2D rb;
   void OnCollisionEnter2D(Collision2D collision)
     {
-        // إذا اصطدم النيزك مع أي جسم آخر (اللاعب أو جسم آخر)
-        if (collision.gameObject.CompareTag("Player"))  // تأكد من أنك قد أضفت التاج "Player" للجسم الذي يصطدم به
+        // إذا اصطدم النيزك مع أي جسم)
+        if (collision.gameObject.CompareTag("Player"))  
         {
             // أوقف حركة النيزك
             rb.velocity = Vector2.zero;  // إيقاف السرعة تماماً

@@ -10,12 +10,11 @@ public class EnemyBullet : MonoBehaviour
         transform.Translate(Vector2.left * speed * Time.deltaTime);
     }
 
-    // إذا اصطدمت الطلقة مع شيء ما (مثل سفينة اللاعب)
-    void OnTriggerEnter2D(Collider2D other)
+       void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))  // إذا كانت الطلقة تصطدم باللاعب
+        if (other.CompareTag("Player"))  
         {
-            // يمكنك إضافة تأثير انفجار هنا
+           
             Destroy(gameObject);  // تدمير الطلقة بعد الاصطدام
         }
     }

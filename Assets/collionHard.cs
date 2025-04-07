@@ -41,7 +41,7 @@ public class collionHard : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
 
-            // بدأ الكوروتين
+            //   تاخير الكوروتين
             StartCoroutine(LoadGameOverWithDelay(0.5f));
         }
     }

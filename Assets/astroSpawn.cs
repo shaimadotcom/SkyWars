@@ -101,7 +101,7 @@ public class astroSpawn : MonoBehaviour
     }
 }
 
-// الكود الثاني اللي لازم تضعه على الـ Astroid Prefab
+
 public class AstroMover : MonoBehaviour
 {
     private float speed;

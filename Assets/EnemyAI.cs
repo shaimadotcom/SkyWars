@@ -2,14 +2,10 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public GameObject explosionEffect;   // تأثير الانفجار عند موت العدو
-    public GameObject bulletPrefab;      // الطلقة التي يطلقها العدو
-    public Transform firePoint;          // مكان إطلاق النار
+    public GameObject explosionEffect;      public GameObject bulletPrefab;         public Transform firePoint;          
 
-    public float fireRate = 1f;          // سرعة الإطلاق (كم مرة يطلق النار)
-    
-    private bool isDead = false;         // متغير ليتأكد إذا كان العدو ميتًا أم لا
-
+    public float fireRate = 1f;        
+    private bool isDead = false;        
   void Start()
 {
     if (firePoint == null)
@@ -22,7 +18,7 @@ public class EnemyAI : MonoBehaviour
     }
     else
     {
-        // جعل العدو يطلق النار بشكل متكرر
+        // ج العدو يطلق النار بشكل متكرر
         InvokeRepeating("Fire", 1f, fireRate);
     }
 }
@@ -37,23 +33,21 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        // الحصول على الحدود الفعلية للشاشة في الإحداثيات العالمية
+        
         float leftBoundary = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
 
-        // تدمير العدو إذا خرج من الشاشة
         if (transform.position.x < leftBoundary)
         {
-            Destroy(gameObject); // دمر العدو إذا خرج من الشاشة
+            Destroy(gameObject); 
         }
     }
 
-    // عندما تصطدم الطلقة بالعدو
     void OnTriggerEnter2D(Collider2D other)
     {
-        // إذا كانت الطلقة من اللاعب
+        
         if (other.CompareTag("PlayerBullet"))
         {
-            // إيقاف العدو عن الإطلاق وموته
+           
             Die();
             Destroy(other.gameObject); // تدمير الطلقة
         }

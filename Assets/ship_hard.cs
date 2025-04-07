@@ -30,7 +30,7 @@ public class ship_hard : MonoBehaviour
         else
             animator.SetInteger("direction", 0); // واقف
 
-        // حركة فوق وتحت (أعلى وأسفل)
+        // حركة فوق وتحت )
         transform.Translate(Vector3.up * verticalInput * moveSpeed * Time.deltaTime);
 
         // إطلاق النار
@@ -42,11 +42,11 @@ public class ship_hard : MonoBehaviour
 
     void Fire()
     {
-        // إنشاء الرصاصة وتحديد سرعتها، لضمان أنها تتحرك في الاتجاه الصحيح
+       
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         
-        // تأكد من أن الطلقات تتحرك للأمام بناءً على `firePoint`، بغض النظر عن حركة المركبة
-        rb.velocity = firePoint.up * 10f; // تأكد أن `firePoint.up` يشير للأمام
+       
+        rb.velocity = firePoint.up * 10f; 
     }
 }

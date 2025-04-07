@@ -30,11 +30,11 @@ public class NYZKrespwan : MonoBehaviour
             // انتظر فترة عشوائية قبل إنشاء النيزك التالي
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
 
-            // إنشاء النيزك في موقع عشوائي ضمن حدود الشاشة
+           
             Vector2 spawnPos = new Vector2(Random.Range(screenLeft, screenRight), spawnY);
             GameObject asteroid = Instantiate(asteroidPrefab, spawnPos, Quaternion.identity);
 
-            // Debug Log لمتابعة مكان إنشاء النيزك
+           
             Debug.Log("Spawning asteroid at: " + spawnPos);
 
             // تحديد سرعة النيزك

@@ -36,7 +36,7 @@ public class shipscript_easy : MonoBehaviour
     void FixedUpdate()
     {
         if (isGameWon)
-            return;  // إذا تم الفوز، لا نحرك المركبة
+            return;  // إذا تم الفوز لا نحرك المركبة
 
         // نحرك السفينة يمين/يسار فقط، مع حركة ثابتة للأعلى
         shipRigidbody.velocity = new Vector2(horizontalInput * moveSpeed, flySpeed);

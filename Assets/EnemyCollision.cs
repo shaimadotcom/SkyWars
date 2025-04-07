@@ -20,7 +20,7 @@ public class EnemyCollision : MonoBehaviour
     {
         if (collision.CompareTag("PlayerBullet"))
         {
-            // تأثيرات الانفجار
+            // تأثيراتر
             GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity, transform);
             Destroy(explosion, 0.5f);
 

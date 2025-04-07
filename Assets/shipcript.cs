@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;  // نحتاجه للتنقل بين المشاهد
+using UnityEngine.SceneManagement;  
 
 public class shipcript : MonoBehaviour
 {
