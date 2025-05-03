@@ -1,11 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;  // إذا كنت تريد إعادة تحميل المشهد
+using UnityEngine.SceneManagement;
 
 public class shipscript_easy : MonoBehaviour
 {
     public Rigidbody2D shipRigidbody;
     public float moveSpeed = 8f; // سرعة الحركة الأفقية
-    public float flySpeed = 2f;  // سرعة الطيران للأعلى
+    public float flySpeed = 1f;  // سرعة الطيران للأعلى، سنجعلها أبطأ
 
     private Animator animator;
     private float horizontalInput;
@@ -14,6 +14,32 @@ public class shipscript_easy : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        // جلب الفهرس المحفوظ للشخصية المختارة من PlayerPrefs
+        int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
+
+        // تعيين السرعات بناءً على الشخصية المختارة
+        switch (selectedCharacterIndex)
+        {
+            case 0: // الشخصية الأولى
+                moveSpeed = 8f;  // السرعة الأفقية
+                flySpeed = 1f;   // سرعة الطيران للأعلى بطيئة
+                break;
+            case 1: // الشخصية الثانية
+                moveSpeed = 3f;  // السرعة الأفقية
+                flySpeed = 0.5f; // سرعة الطيران للأعلى بطيئة جدًا
+                break;
+            case 2: // الشخصية الثالثة
+                moveSpeed = 2f;  // السرعة الأفقية
+                flySpeed = 0.3f; // سرعة الطيران بطيئة جدًا
+                break;
+            default:
+                moveSpeed = 8f;
+                flySpeed = 1f;
+                break;
+        }
+
+        Debug.Log("Selected character index: " + selectedCharacterIndex);
     }
 
     void Update()
@@ -55,6 +81,6 @@ public class shipscript_easy : MonoBehaviour
     {
         isGameWon = true;  // منع الحركة بعد الفوز
         Debug.Log("You Win!");  
- SceneManager.LoadScene("WinScene");
+        SceneManager.LoadScene("WinScene");
     }
 }

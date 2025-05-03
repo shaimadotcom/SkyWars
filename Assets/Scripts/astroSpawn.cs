@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class astroSpawn : MonoBehaviour
 {
@@ -14,6 +17,8 @@ public class astroSpawn : MonoBehaviour
     private List<float> recentSpawnYs = new List<float>();
     private Camera mainCamera;
     private float spawnX;
+    public List<GameObject> spawnedAstros = new List<GameObject>(); // للعوائق
+    public int astrosSpawnedCount = 0; // متغير لحساب عدد الكويكبات المولدة
     
     void Start()
     {
@@ -39,7 +44,6 @@ public class astroSpawn : MonoBehaviour
     {
         float cameraWidth = mainCamera.orthographicSize * mainCamera.aspect;
         spawnX = mainCamera.transform.position.x + cameraWidth + 2f;
-        
     }
 
     IEnumerator SpawnAsteroids()
@@ -61,7 +65,9 @@ public class astroSpawn : MonoBehaviour
         if (recentSpawnYs.Count > 3) recentSpawnYs.RemoveAt(0);
 
         GameObject newAstro = Instantiate(astro, new Vector3(spawnX, spawnY, 0), Quaternion.identity);
-        ConfigureAstro(newAstro);
+        spawnedAstros.Add(newAstro);  
+        
+    CoinManager.instance.IncrementObstaclesPassed();
 
         yield return null;
     }
@@ -83,43 +89,5 @@ public class astroSpawn : MonoBehaviour
             if (Mathf.Abs(y - prevY) < minYSpacing) return false;
         }
         return true;
-    }
-
-    void ConfigureAstro(GameObject astroObj)
-    {
-        // Random scale and speed
-        float randomScale = Random.Range(0.7f, 1.3f);
-        astroObj.transform.localScale = Vector3.one * randomScale;
-        
-        // Inverse relationship between size and speed
-        float speed = Mathf.Lerp(moveSpeedMax, moveSpeedMin, 
-            (randomScale - 0.7f) / (1.3f - 0.7f));
-        
-        // Setup movement and auto-destruction
-        AstroMover mover = astroObj.GetComponent<AstroMover>();
-       
-    }
-}
-
-
-public class AstroMover : MonoBehaviour
-{
-    private float speed;
-    private float destroyX;
-
-    public void Setup(float moveSpeed, float destroyPositionX)
-    {
-        speed = moveSpeed;
-        destroyX = destroyPositionX;
-    }
-
-    void Update()
-    {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
-        
-        if (transform.position.x < destroyX)
-        {
-            Destroy(gameObject);
-        }
     }
 }

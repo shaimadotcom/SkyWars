@@ -18,7 +18,7 @@ public class EnemyAI : MonoBehaviour
     }
     else
     {
-        // ج العدو يطلق النار بشكل متكرر
+
         InvokeRepeating("Fire", 1f, fireRate);
     }
 }
@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (!isDead)
         {
-            // إطلاق الطلقة إذا لم يكن العدو ميتًا
+           
             Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         }
     }
@@ -53,7 +53,6 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    // عند موت العدو
     void Die()
     {
         isDead = true;  // وضع العدو في حالة موت

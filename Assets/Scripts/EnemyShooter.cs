@@ -35,9 +35,16 @@ public class EnemyShooter : MonoBehaviour
         transform.position = new Vector3(startPosition.x, startPosition.y + newY, startPosition.z); // تطبيق الحركة
     }
 
-    void Shoot()
+   void Shoot()
     {
-      
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+
+        
+            CoinManager.instance.IncrementObstaclesPassed();
+        
+       
+        
+            
     }
 }

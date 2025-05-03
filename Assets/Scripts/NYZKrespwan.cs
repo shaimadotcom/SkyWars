@@ -4,12 +4,12 @@ using UnityEngine;
 public class NYZKrespwan : MonoBehaviour
 {
     public GameObject asteroidPrefab;
-    public float minSpawnDelay = 6f;  // زيادة تأخير بين النيازك
-    public float maxSpawnDelay = 8f;  // زيادة تأخير بين النيازك
-    public float spawnY = 10f;  // موقع البداية للنيزك
+    public float minSpawnDelay = 6f;  
+    public float maxSpawnDelay = 8f;  
+    public float spawnY = 10f;  
     
-    public float maxSpeed = 1f;  // تقليل السرعة أكثر
-    public float gravityScale = 0.1f;  // التأثير البطيء للجاذبية
+    public float maxSpeed = 1f;  
+    public float gravityScale = 0.1f; 
 
     private float screenLeft;
     private float screenRight;
@@ -33,15 +33,18 @@ public class NYZKrespwan : MonoBehaviour
            
             Vector2 spawnPos = new Vector2(Random.Range(screenLeft, screenRight), spawnY);
             GameObject asteroid = Instantiate(asteroidPrefab, spawnPos, Quaternion.identity);
+if (CoinManager.instance != null)
+{
+    CoinManager.instance.IncrementObstaclesPassed();
+}
 
            
             Debug.Log("Spawning asteroid at: " + spawnPos);
 
             // تحديد سرعة النيزك
             Rigidbody2D rb = asteroid.GetComponent<Rigidbody2D>();
-            rb.velocity = Vector2.down * maxSpeed;  // تعيين سرعة السقوط
+            rb.velocity = Vector2.down * maxSpeed; 
 
-            // تعديل تأثير الجاذبية لجعل السقوط أبطأ
             rb.gravityScale = gravityScale;
 
          

@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Sprite emptyHeart;
 
     [Header("Timer Bar Settings")]
-    [SerializeField] Image[] timerBar; // 5 صور للتايمر
+    [SerializeField] Image[] timerBar;
     [SerializeField] Sprite fullBar;
     [SerializeField] Sprite fourFifthsBar;
     [SerializeField] Sprite threeFifthsBar;
@@ -24,9 +24,8 @@ public class GameController : MonoBehaviour
     [Header("Game Settings")]
     [SerializeField] float timeLimit = 30f;
 
-     // إذا كنت تستخدم TextMesh Pro
 
-    private float enemyHealth = 3f; // صحة العدو (كل قلب = 1)
+    private float enemyHealth = 3f; //صحة العدو (كل قلب = 1) من هنا اقلل كم ضربه يموت كل ضربه ثلااث للقلب
     private float currentTime;
     private bool isGameActive;
 
@@ -125,7 +124,7 @@ public class GameController : MonoBehaviour
 
     void SetTimerBarSprite(Sprite sprite)
     {
-        // تعيين الصورة لكل عنصر في شريط التايمر
+    
         foreach (Image img in timerBar)
         {
             img.sprite = sprite;
@@ -135,7 +134,7 @@ public class GameController : MonoBehaviour
     void DestroyEnemy()
     {
         isGameActive = false;
-        Debug.Log("Loading WinScene..."); // تأكد من أنه يتم الوصول لهذه السطر
+        Debug.Log("Loading WinScene..."); 
         SceneManager.LoadScene("WinScene");
     }
 }

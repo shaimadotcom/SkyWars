@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6940cdda447048efa58605bd546f9920, type: 3}
+  m_Name: jump-with-gun
+  m_EditorClassIdentifier: 
+  Frames:
+  - DelayInMs: 150
+    Sprite: {fileID: 21300000, guid: 5c687b05ec398db4493218f357a80b14, type: 3}
+  - DelayInMs: 150
+    Sprite: {fileID: 21300000, guid: 5ee7d99872ce9fb4fb464b5e3cff939a, type: 3}
+  - DelayInMs: 150
+    Sprite: {fileID: 21300000, guid: 7ca3c71fbcf910a419c5d2df936c233a, type: 3}
+  - DelayInMs: 150
+    Sprite: {fileID: 21300000, guid: 1d4eae217dec8244ea45675482449d17, type: 3}
+  - DelayInMs: 150
+    Sprite: {fileID: 21300000, guid: 6d61a6564f34d714b831ec4d781d4942, type: 3}

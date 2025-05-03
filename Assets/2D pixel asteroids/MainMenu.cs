@@ -39,7 +39,6 @@ public class MainMenu : MonoBehaviour
         PlayClickSound();
         Debug.Log("Continuing Game...");
         
-        // استرجاع اسم المشهد المحفوظ في PlayerPrefs (إذا لم يكن موجودًا سيتم استخدام "DefaultScene")
         string lastScene = PlayerPrefs.GetString("LastScene", "DefaultScene");
         
         // تحميل المشهد الذي تم حفظه
