@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Shop.unity
     guid: 7af707b78ab544c4e883202d8de97960
   - enabled: 1
+    path: Assets/Scenes/Hard 1.unity
+    guid: b49c80458955d104893f1ba641ae9ce1
+  - enabled: 1
     path: Assets/Scenes/easy.unity
     guid: dd72d3d23f2ea604385b632abc6da0a7
   - enabled: 1
